@@ -3,6 +3,7 @@ const Generator = require('yeoman-generator');
 let prompts = require('./prompts');
 let writing = require('./writing');
 let configuring = require('./configuring');
+let install = require('./install');
 
 module.exports = class extends Generator {
   /**
@@ -22,6 +23,7 @@ module.exports = class extends Generator {
     prompts = prompts.bind(this);
     writing = writing.bind(this);
     configuring = configuring.bind(this);
+    install = install.bind(this);
   }
 
   /**
@@ -53,7 +55,7 @@ module.exports = class extends Generator {
   }
 
   /**
-   * Yeoman methos to write files
+   * Yeoman method to write files
    *
    * @return {Promise} A promise to pause yeoman execution until it resolves
    */
@@ -61,11 +63,12 @@ module.exports = class extends Generator {
     return writing();
   }
 
-  // Install() {
-  //   this.installDependencies({
-  //     npm: false,
-  //     bower: false,
-  //     yarn: true
-  //   });
-  // }
+  /**
+   * Yeoman method to install dependencies
+   *
+   * @return {Promise} A promise to pause yeoman execution until it resolves
+   */
+  install() {
+    return install();
+  }
 };

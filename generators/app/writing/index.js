@@ -21,6 +21,10 @@ module.exports = function() {
   babel = babel.bind(this);
   flow = flow.bind(this);
 
+  if (this.props.eslint) eslint();
+  if (this.props.babel) babel();
+  if (this.props.flow) flow();
+
   switch (this.props.template) {
     case 'npm-module':
       packageJson();
@@ -30,9 +34,6 @@ module.exports = function() {
       npmignore();
       readme();
       npmModule();
-      eslint();
-      babel();
-      flow();
       break;
 
     default:
