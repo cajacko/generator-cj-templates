@@ -1,9 +1,9 @@
 let combineProps = require('../helpers/combineProps');
-let switchTemplate = require('../helpers/switchTemplate');
+let switchTemplatePrompt = require('../helpers/switchTemplatePrompt');
 
 module.exports = function() {
   combineProps = combineProps.bind(this);
-  switchTemplate = switchTemplate.bind(this);
+  switchTemplatePrompt = switchTemplatePrompt.bind(this);
 
   const prompts = [
     {
@@ -24,10 +24,10 @@ module.exports = function() {
 
   if (this.options.template) {
     this.props.template = this.options.template;
-    return switchTemplate();
+    return switchTemplatePrompt();
   }
 
   return this.prompt(prompts)
     .then(combineProps)
-    .then(switchTemplate);
+    .then(switchTemplatePrompt);
 };

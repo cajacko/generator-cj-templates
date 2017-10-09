@@ -7,6 +7,6 @@ module.exports = function() {
     case 'npm-module':
       return npmModule();
     default:
-      throw new Error(`No tempalte for "${this.props.template}"`);
+      return true;
   }
 };

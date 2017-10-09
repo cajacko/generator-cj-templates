@@ -12,12 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/cajacko/run-command-promise.git"
   },
-  "keywords": [
-    "node",
-    "command",
-    "promise",
-    "javascript"
-  ],
+  "keywords": ["node", "command", "promise", "javascript"],
   "author": "Charlie Jackson",
   "license": "MIT",
   "bugs": {
