@@ -1,24 +1,16 @@
 {
-  "name": "generator-cj-npm-module",
+  "name": "generator-cj-templates",
   "version": "0.0.0",
-  "description": "Create an npm package",
+  "description": "Code tempaltes for Charlie Jackson",
   "homepage": "",
   "author": {
     "name": "Charlie Jackson",
     "email": "contact@charliejackson.com",
     "url": "https://charliejackson.com"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
-  "keywords": [
-    "npm",
-    "node",
-    "package",
-    "javascript",
-    "yeoman-generator"
-  ],
+  "keywords": ["npm", "node", "package", "javascript", "yeoman-generator"],
   "devDependencies": {
     "yeoman-test": "^1.6.0",
     "yeoman-assert": "^3.0.0",
@@ -49,20 +41,11 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
   },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -76,10 +59,8 @@
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
-  "repository": "cajacko/generator-cj-npm-module",
+  "repository": "cajacko/generator-cj-templates",
   "license": "MIT"
 }

@@ -2,29 +2,23 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+let prompts = require('./helpers/prompts');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+    prompts = prompts.bind(this);
+  }
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(
       yosay(
-        'Welcome to the wondrous ' + chalk.red('generator-cj-npm-module') + ' generator!'
+        'Welcome to the wondrous ' + chalk.red('generator-cj-templates') + ' generator!'
       )
     );
 
-    // Const prompts = [
-    //   {
-    //     type: 'confirm',
-    //     name: 'someAnswer',
-    //     message: 'Would you like to enable this option?',
-    //     default: true
-    //   }
-    // ];
-    //
-    // return this.prompt(prompts).then(props => {
-    //   // To access props later use this.props.someAnswer;
-    //   this.props = props;
-    // });
+    return prompts();
   }
 
   removeDir() {
