@@ -51,6 +51,35 @@
       "node": true
     },
     "rules": {
+      "valid-jsdoc": "error",
+      "require-jsdoc": [
+        "error",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true,
+            "ArrowFunctionExpression": true
+          }
+        }
+      ],
+      "max-lines": [
+        "error",
+        {
+          "max": 100,
+          "skipBlankLines": true,
+          "skipComments": true
+        }
+      ],
+      "max-len": [
+        "error",
+        {
+          "code": 80,
+          "ignoreStrings": true,
+          "ignoreUrls": true,
+          "ignoreRegExpLiterals": true
+        }
+      ],
       "prettier/prettier": [
         "error",
         {
