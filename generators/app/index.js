@@ -2,6 +2,7 @@
 const Generator = require('yeoman-generator');
 let prompts = require('./prompts');
 let writing = require('./writing');
+let configuring = require('./configuring');
 
 module.exports = class extends Generator {
   /**
@@ -14,35 +15,13 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.props = {
-      packageJsonScripts: [
-        {
-          key: 'version:patch',
-          value: 'npm version patch',
-          order: 10
-        },
-        {
-          key: 'version:minor',
-          value: 'npm version minor',
-          order: 1
-        },
-        {
-          key: 'version:major',
-          value: 'npm version major',
-          order: 2
-        },
-        {
-          key: 'publish',
-          value: 'npm publish',
-          order: 5
-        }
-      ]
-    };
+    this.props = {};
 
     this.argument('template', { type: String, required: false });
 
     prompts = prompts.bind(this);
     writing = writing.bind(this);
+    configuring = configuring.bind(this);
   }
 
   /**
@@ -52,6 +31,15 @@ module.exports = class extends Generator {
    */
   prompting() {
     return prompts();
+  }
+
+  /**
+   * Yeoman class to do config operations
+   *
+   * @return {[type]} [description]
+   */
+  configuring() {
+    return configuring();
   }
 
   /**
@@ -71,16 +59,6 @@ module.exports = class extends Generator {
    */
   writing() {
     return writing();
-    // Const props = {
-    //   title: 'Title of package',
-    //   slug: 'title-of-package',
-    //   description: 'A description'
-    // };
-    //
-    // this.fs.copyTpl(this.templatePath('**/*'),
-    // this.destinationPath(''), props);
-    // this.fs.copyTpl(this.templatePath('**/.*'),
-    // this.destinationPath(''), props);
   }
 
   // Install() {
