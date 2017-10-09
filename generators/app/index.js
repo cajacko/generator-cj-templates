@@ -1,10 +1,15 @@
 'use strict';
 const Generator = require('yeoman-generator');
-const chalk = require('chalk');
-const yosay = require('yosay');
 let prompts = require('./prompts');
 
 module.exports = class extends Generator {
+  /**
+   * Initialise the class, define arguments and bind helper functions
+   *
+   * @param  {Object} args Args passed to yeoman
+   * @param  {Object} opts Options passed to yeoman
+   * @return {void}      No return value
+   */
   constructor(args, opts) {
     super(args, opts);
 
@@ -14,21 +19,29 @@ module.exports = class extends Generator {
     prompts = prompts.bind(this);
   }
 
+  /**
+   * Yeoman class to specify prompts
+   *
+   * @return {Promise} A promise to pause yeoman execution until it resolves
+   */
   prompting() {
-    // Have Yeoman greet the user.
-    this.log(
-      yosay(
-        'Welcome to the wondrous ' + chalk.red('generator-cj-templates') + ' generator!'
-      )
-    );
-
     return prompts().then(() => console.log(this.props));
   }
 
+  /**
+   * Custom method to clear the dir before running
+   *
+   * @return {Promise} A promise to pause yeoman execution until it resolves
+   */
   removeDir() {
     this.fs.delete('*');
   }
 
+  /**
+   * Yeoman methos to write files
+   *
+   * @return {Promise} A promise to pause yeoman execution until it resolves
+   */
   writing() {
     const props = {
       title: 'Title of package',
