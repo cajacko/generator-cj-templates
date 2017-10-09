@@ -2,7 +2,7 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
-let prompts = require('./helpers/prompts');
+let prompts = require('./prompts');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -18,7 +18,7 @@ module.exports = class extends Generator {
       )
     );
 
-    return prompts();
+    return prompts().then(() => console.log(this.props));
   }
 
   removeDir() {
