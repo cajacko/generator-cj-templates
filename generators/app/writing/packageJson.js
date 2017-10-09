@@ -27,5 +27,9 @@ module.exports = function() {
     }
   };
 
+  if (this.props.packageJsonMain) {
+    file.main = this.props.packageJsonMain;
+  }
+
   this.fs.writeJSON(this.destinationPath('./package.json'), file);
 };

@@ -1,4 +1,8 @@
+let switchTemplateConfiguring = require('../helpers/switchTemplateConfiguring');
+
 module.exports = function() {
+  switchTemplateConfiguring = switchTemplateConfiguring.bind(this);
+
   this.props.packageJsonScripts = [
     {
       key: 'version:patch',
@@ -24,4 +28,6 @@ module.exports = function() {
 
   this.props.readmeTitle = this.props.templateName;
   this.props.readmeDescription = this.props.projectDescription;
+
+  return switchTemplateConfiguring();
 };
