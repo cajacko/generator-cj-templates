@@ -1,6 +1,7 @@
 'use strict';
 const Generator = require('yeoman-generator');
 let prompts = require('./prompts');
+let writing = require('./writing');
 
 module.exports = class extends Generator {
   /**
@@ -17,6 +18,7 @@ module.exports = class extends Generator {
     this.argument('template', { type: String, required: false });
 
     prompts = prompts.bind(this);
+    writing = writing.bind(this);
   }
 
   /**
@@ -35,6 +37,7 @@ module.exports = class extends Generator {
    */
   removeDir() {
     this.fs.delete('*');
+    this.fs.delete('.*');
   }
 
   /**
@@ -43,14 +46,17 @@ module.exports = class extends Generator {
    * @return {Promise} A promise to pause yeoman execution until it resolves
    */
   writing() {
-    const props = {
-      title: 'Title of package',
-      slug: 'title-of-package',
-      description: 'A description'
-    };
-
-    this.fs.copyTpl(this.templatePath('**/*'), this.destinationPath(''), props);
-    this.fs.copyTpl(this.templatePath('**/.*'), this.destinationPath(''), props);
+    return writing();
+    // Const props = {
+    //   title: 'Title of package',
+    //   slug: 'title-of-package',
+    //   description: 'A description'
+    // };
+    //
+    // this.fs.copyTpl(this.templatePath('**/*'),
+    // this.destinationPath(''), props);
+    // this.fs.copyTpl(this.templatePath('**/.*'),
+    // this.destinationPath(''), props);
   }
 
   // Install() {
