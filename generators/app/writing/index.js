@@ -5,6 +5,9 @@ let gitignore = require('./gitignore');
 let npmignore = require('./npmignore');
 let readme = require('./readme');
 let npmModule = require('./npmModule');
+let eslint = require('./eslint');
+let babel = require('./babel');
+let flow = require('./flow');
 
 module.exports = function() {
   packageJson = packageJson.bind(this);
@@ -14,6 +17,9 @@ module.exports = function() {
   npmignore = npmignore.bind(this);
   readme = readme.bind(this);
   npmModule = npmModule.bind(this);
+  eslint = eslint.bind(this);
+  babel = babel.bind(this);
+  flow = flow.bind(this);
 
   switch (this.props.template) {
     case 'npm-module':
@@ -24,6 +30,9 @@ module.exports = function() {
       npmignore();
       readme();
       npmModule();
+      eslint();
+      babel();
+      flow();
       break;
 
     default:
