@@ -1,9 +1,9 @@
 let combineProps = require('../helpers/combineProps');
-let npmModule = require('./npmModule');
+let switchTemplate = require('../helpers/switchTemplate');
 
 module.exports = function() {
   combineProps = combineProps.bind(this);
-  npmModule = npmModule.bind(this);
+  switchTemplate = switchTemplate.bind(this);
 
   const prompts = [
     {
@@ -22,14 +22,12 @@ module.exports = function() {
     }
   ];
 
+  if (this.options.template) {
+    this.props.template = this.options.template;
+    return switchTemplate();
+  }
+
   return this.prompt(prompts)
     .then(props => combineProps(props))
-    .then(() => {
-      switch (this.props.template) {
-        case 'npm-module':
-          return npmModule();
-        default:
-          throw new Error(`No tempalte for ${this.props.template}`);
-      }
-    });
+    .then(switchTemplate);
 };

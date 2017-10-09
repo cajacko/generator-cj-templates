@@ -7,6 +7,10 @@ let prompts = require('./prompts');
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
+
+    this.props = {};
+    this.argument('template', { type: String, required: false });
+
     prompts = prompts.bind(this);
   }
 
@@ -36,11 +40,11 @@ module.exports = class extends Generator {
     this.fs.copyTpl(this.templatePath('**/.*'), this.destinationPath(''), props);
   }
 
-  install() {
-    this.installDependencies({
-      npm: false,
-      bower: false,
-      yarn: true
-    });
-  }
+  // Install() {
+  //   this.installDependencies({
+  //     npm: false,
+  //     bower: false,
+  //     yarn: true
+  //   });
+  // }
 };
