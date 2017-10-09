@@ -1,0 +1,3 @@
+# <%= title %>
+
+<% if (description) { %><%= description %><% } %>

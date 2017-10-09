@@ -21,4 +21,7 @@ module.exports = function() {
       order: 5
     }
   ];
+
+  this.props.readmeTitle = this.props.templateName;
+  this.props.readmeDescription = this.props.projectDescription;
 };
