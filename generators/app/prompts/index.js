@@ -28,6 +28,6 @@ module.exports = function() {
   }
 
   return this.prompt(prompts)
-    .then(props => combineProps(props))
+    .then(combineProps)
     .then(switchTemplate);
 };

@@ -14,7 +14,31 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.props = {};
+    this.props = {
+      packageJsonScripts: [
+        {
+          key: 'version:patch',
+          value: 'npm version patch',
+          order: 10
+        },
+        {
+          key: 'version:minor',
+          value: 'npm version minor',
+          order: 1
+        },
+        {
+          key: 'version:major',
+          value: 'npm version major',
+          order: 2
+        },
+        {
+          key: 'publish',
+          value: 'npm publish',
+          order: 5
+        }
+      ]
+    };
+
     this.argument('template', { type: String, required: false });
 
     prompts = prompts.bind(this);
@@ -27,7 +51,7 @@ module.exports = class extends Generator {
    * @return {Promise} A promise to pause yeoman execution until it resolves
    */
   prompting() {
-    return prompts().then(() => console.log(this.props));
+    return prompts();
   }
 
   /**

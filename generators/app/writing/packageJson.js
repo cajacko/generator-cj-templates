@@ -1,34 +1,29 @@
+const parseScripts = require('../helpers/parseScripts');
+
 module.exports = function() {
   const file = {
-    name: this.props.name,
-    version: this.props.version,
-    description: this.props.description,
+    name: this.props.packageJsonName,
+    version: '0.1.0',
+    description: this.props.packageJsonDescription,
     author: {
-      name: this.props.authorName,
-      email: this.props.authorEmail,
-      url: this.props.authorUrl
+      name: this.props.packageJsonAuthorName,
+      email: this.props.packageJsonAuthorEmail,
+      url: this.props.packageJsonAuthorUrl
     },
-    license: this.props.license,
-    keywords: this.props.keywords,
+    license: 'MIT',
+    keywords: this.props.packageJsonKeywords,
     repository: {
       type: 'git',
-      url: `${this.props.github}.git`
+      url: `${this.props.packageJsonGithubUrl}.git`
     },
-    homepage: `${this.props.github}#readme`,
-    scripts: {
-      'version:patch': 'npm version patch',
-      'version:minor': 'npm version minor',
-      'version:major': 'npm version major',
-      publish: 'npm publish',
-      precommit: 'npm test',
-      prepush: 'npm test'
-    },
+    homepage: `${this.props.packageJsonGithubUrl}#readme`,
+    scripts: parseScripts(this.props.packageJsonScripts),
     engine: {
-      node: this.props.engine
+      node: '>=6.9.1'
     },
     bugs: {
-      email: this.props.authorEmail,
-      url: `${this.props.github}/issues`
+      email: this.props.packageJsonAuthorEmail,
+      url: `${this.props.packageJsonGithubUrl}/issues`
     }
   };
 
