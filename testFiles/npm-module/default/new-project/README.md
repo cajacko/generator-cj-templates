@@ -1,3 +1,3 @@
-# Dummy Project
+# New Project
 
-Description of the dummy project
+Description of the project

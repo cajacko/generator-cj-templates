@@ -1,14 +1,14 @@
 {
-  "name": "dummy-project",
+  "name": "new-project",
   "version": "0.1.0",
-  "description": "Description of the dummy project",
+  "description": "Description of the project",
   "author": {
     "name": "Charlie Jackson",
     "email": "contact@charliejackson.com",
     "url": "https://charliejackson.com"
   },
   "license": "MIT",
-  "keywords": ["dummy", "project", "node", "javascript", "npm"],
+  "keywords": ["keyword1", "keyword2", "node", "javascript", "npm"],
   "repository": {
     "type": "git",
     "url": "https://github.com/cajacko/dummy-project-url.git"
