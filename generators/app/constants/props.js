@@ -26,5 +26,6 @@ module.exports = {
   readmeDescription: null,
   packageJsonDependencies: null,
   packageJsonDevDependencies: null,
-  destinationRoot: null
+  destinationRoot: null,
+  git: null
 };

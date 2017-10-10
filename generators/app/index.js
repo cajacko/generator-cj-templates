@@ -5,6 +5,7 @@ let writing = require('./writing');
 let configuring = require('./configuring');
 let install = require('./install');
 const props = require('./constants/props');
+let end = require('./end');
 
 module.exports = class extends Generator {
   /**
@@ -25,6 +26,7 @@ module.exports = class extends Generator {
     writing = writing.bind(this);
     configuring = configuring.bind(this);
     install = install.bind(this);
+    end = end.bind(this);
     this._combineProps = this._combineProps.bind(this);
     this._propError = this._propError.bind(this);
     this._getProp = this._getProp.bind(this);
@@ -117,5 +119,14 @@ module.exports = class extends Generator {
    */
   install() {
     return install();
+  }
+
+  /**
+   * Yeoman method to do any clean up actions
+   *
+   * @return {Promise} A promise to pause yeoman execution until it resolves
+   */
+  end() {
+    return end();
   }
 };
