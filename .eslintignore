@@ -1,3 +1,5 @@
 coverage
 **/templates
 testFiles
+scripts/testTemplate.js
+__tests__

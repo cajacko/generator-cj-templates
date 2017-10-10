@@ -13,6 +13,7 @@
   "keywords": ["npm", "node", "package", "javascript", "yeoman-generator"],
   "devDependencies": {
     "coveralls": "^2.13.1",
+    "ejs": "2.5.7",
     "eslint": "^4.1.0",
     "eslint-config-prettier": "^2.4.0",
     "eslint-config-xo": "^0.18.2",
@@ -41,7 +42,7 @@
     "prepublish": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "test": "jest"
+    "test": "node scripts/buildTests.js && jest"
   },
   "lint-staged": {
     "*.js": ["eslint --fix", "git add"],
