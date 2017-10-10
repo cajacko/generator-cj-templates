@@ -1,5 +1,6 @@
 module.exports = {
   packageJsonScripts: [],
+  packageJsonBin: [],
   readmeTitle: null,
   templateName: null,
   packageJson: null,

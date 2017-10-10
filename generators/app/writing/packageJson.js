@@ -66,6 +66,7 @@ module.exports = function() {
     },
     homepage: `${this._getProp('packageJsonGithubUrl')}#readme`,
     scripts: parseScripts(this._getProp('packageJsonScripts')),
+    bin: parseScripts(this._getProp('packageJsonBin')),
     engine: {
       node: '>=6.9.1'
     },
