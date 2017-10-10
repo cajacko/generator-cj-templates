@@ -12,6 +12,14 @@ module.exports = function() {
     devDependencies['eslint-plugin-react'] = '6.10.3';
   }
 
+  if (this._getProp('eslint') && this._getProp('flow')) {
+    devDependencies['eslint-plugin-flowtype'] = '2.31.0';
+  }
+
+  if (this._getProp('eslint') && this._getProp('jest')) {
+    devDependencies['eslint-plugin-jest'] = '21.2.0';
+  }
+
   if (this._getProp('babel') && this._getProp('eslint')) {
     devDependencies['babel-eslint'] = '7.2.2';
     devDependencies['eslint-import-resolver-babel-module'] = '3.0.0';
