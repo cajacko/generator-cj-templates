@@ -5,10 +5,10 @@ module.exports = function() {
   switchTemplateConfiguring = switchTemplateConfiguring.bind(this);
   packageJson = packageJson.bind(this);
 
-  this.props.readmeTitle = this.props.templateName;
-  this.props.readmeDescription = this.props.projectDescription;
+  this._setProp('readmeTitle', this._getProp('templateName'));
+  this._setProp('readmeDescription', this._getProp('projectDescription'));
 
   return Promise.resolve()
     .then(switchTemplateConfiguring)
-    .then(this.props.packageJson && packageJson);
+    .then(this._getProp('packageJson') && packageJson);
 };

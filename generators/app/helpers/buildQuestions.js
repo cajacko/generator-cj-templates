@@ -3,7 +3,7 @@ module.exports = function(questions) {
 
   questions.forEach(question => {
     if (question.valueOverride) {
-      this.props[question.name] = question.valueOverride;
+      this._setProp(question.name, question.valueOverride);
       return;
     }
 

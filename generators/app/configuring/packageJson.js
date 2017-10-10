@@ -1,17 +1,19 @@
 module.exports = function() {
-  this.props.packageJsonScripts.push({
+  const scripts = this._getProp('packageJsonScripts');
+
+  scripts.push({
     key: 'version:patch',
     value: 'npm version patch',
     order: 10
   });
 
-  this.props.packageJsonScripts.push({
+  scripts.push({
     key: 'version:minor',
     value: 'npm version minor',
     order: 11
   });
 
-  this.props.packageJsonScripts.push({
+  scripts.push({
     key: 'version:major',
     value: 'npm version major',
     order: 12
@@ -19,23 +21,25 @@ module.exports = function() {
 
   let testScript = '';
 
-  if (this.props.eslint) {
+  if (this._getProp('eslint')) {
     testScript += 'eslint src';
   }
 
-  if (this.props.jest) {
+  if (this._getProp('jest')) {
     testScript += ' & jest --coverage';
   }
 
-  if (this.props.flow) {
+  if (this._getProp('flow')) {
     testScript += ' & flow-check --skip-check';
   }
 
   if (testScript !== '') {
-    this.props.packageJsonScripts.push({
+    scripts.push({
       key: 'test',
       value: testScript,
       order: 2
     });
   }
+
+  this._setProp('packageJsonScripts', scripts);
 };

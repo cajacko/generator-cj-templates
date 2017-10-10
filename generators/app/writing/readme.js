@@ -1,11 +1,12 @@
 module.exports = function() {
-  const { readmeTitle, readmeDescription } = this.props;
+  const title = this._getProp('readmeTitle');
+  const description = this._getProp('readmeDescription');
 
-  if (readmeTitle) {
+  if (title) {
     this.fs.copyTpl(
       this.templatePath('readme/README.md'),
       this.destinationPath('README.md'),
-      { title: readmeTitle, description: readmeDescription }
+      { title, description }
     );
   }
 };

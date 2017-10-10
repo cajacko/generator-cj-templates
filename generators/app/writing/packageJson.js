@@ -1,10 +1,10 @@
 const parseScripts = require('../helpers/parseScripts');
 
 module.exports = function() {
-  const dependencies = this.props.packageJsonDependencies || {};
-  const devDependencies = this.props.packageJsonDevDependencies || {};
+  const dependencies = this._getProp('packageJsonDependencies') || {};
+  const devDependencies = this._getProp('packageJsonDevDependencies') || {};
 
-  if (this.props.eslint) {
+  if (this._getProp('eslint')) {
     devDependencies.eslint = '3.19.0';
     devDependencies['eslint-config-airbnb'] = '14.1.0';
     devDependencies['eslint-plugin-import'] = '2.2.0';
@@ -12,12 +12,12 @@ module.exports = function() {
     devDependencies['eslint-plugin-react'] = '6.10.3';
   }
 
-  if (this.props.babel && this.props.eslint) {
+  if (this._getProp('babel') && this._getProp('eslint')) {
     devDependencies['babel-eslint'] = '7.2.2';
     devDependencies['eslint-import-resolver-babel-module'] = '3.0.0';
   }
 
-  if (this.props.babel) {
+  if (this._getProp('babel')) {
     devDependencies['babel-cli'] = '6.24.1';
     devDependencies['babel-plugin-module-resolver'] = '2.7.0';
     devDependencies['babel-preset-es2015'] = '6.24.1';
@@ -25,52 +25,52 @@ module.exports = function() {
     devDependencies['babel-preset-stage-2'] = '6.24.1';
   }
 
-  if (this.props.babel && this.props.jest) {
+  if (this._getProp('babel') && this._getProp('jest')) {
     devDependencies['babel-jest'] = '21.2.0';
   }
 
-  if (this.props.babel && this.props.flow) {
+  if (this._getProp('babel') && this._getProp('flow')) {
     devDependencies['babel-plugin-transform-flow-strip-types'] = '6.22.0';
   }
 
-  if (this.props.flow) {
+  if (this._getProp('flow')) {
     devDependencies['flow-check'] = '0.2.2';
   }
 
-  if (this.props.jest) {
+  if (this._getProp('jest')) {
     devDependencies.jest = '21.2.1';
   }
 
   const file = {
-    name: this.props.packageJsonName,
+    name: this._getProp('packageJsonName'),
     version: '0.1.0',
-    description: this.props.packageJsonDescription,
+    description: this._getProp('packageJsonDescription'),
     author: {
-      name: this.props.packageJsonAuthorName,
-      email: this.props.packageJsonAuthorEmail,
-      url: this.props.packageJsonAuthorUrl
+      name: this._getProp('packageJsonAuthorName'),
+      email: this._getProp('packageJsonAuthorEmail'),
+      url: this._getProp('packageJsonAuthorUrl')
     },
     license: 'MIT',
-    keywords: this.props.packageJsonKeywords,
+    keywords: this._getProp('packageJsonKeywords'),
     repository: {
       type: 'git',
-      url: `${this.props.packageJsonGithubUrl}.git`
+      url: `${this._getProp('packageJsonGithubUrl')}.git`
     },
-    homepage: `${this.props.packageJsonGithubUrl}#readme`,
-    scripts: parseScripts(this.props.packageJsonScripts),
+    homepage: `${this._getProp('packageJsonGithubUrl')}#readme`,
+    scripts: parseScripts(this._getProp('packageJsonScripts')),
     engine: {
       node: '>=6.9.1'
     },
     bugs: {
-      email: this.props.packageJsonAuthorEmail,
-      url: `${this.props.packageJsonGithubUrl}/issues`
+      email: this._getProp('packageJsonAuthorEmail'),
+      url: `${this._getProp('packageJsonGithubUrl')}/issues`
     },
     dependencies,
     devDependencies
   };
 
-  if (this.props.packageJsonMain) {
-    file.main = this.props.packageJsonMain;
+  if (this._getProp('packageJsonMain')) {
+    file.main = this._getProp('packageJsonMain');
   }
 
   this.fs.writeJSON(this.destinationPath('./package.json'), file);

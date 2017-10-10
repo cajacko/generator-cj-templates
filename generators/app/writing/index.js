@@ -21,11 +21,11 @@ module.exports = function() {
   babel = babel.bind(this);
   flow = flow.bind(this);
 
-  if (this.props.eslint) eslint();
-  if (this.props.babel) babel();
-  if (this.props.flow) flow();
+  if (this._getProp('eslint')) eslint();
+  if (this._getProp('babel')) babel();
+  if (this._getProp('flow')) flow();
 
-  switch (this.props.template) {
+  switch (this._getProp('template')) {
     case 'npm-module':
       packageJson();
       editorConfig();

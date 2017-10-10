@@ -3,7 +3,7 @@ let npmModule = require('../prompts/npmModule');
 module.exports = function() {
   npmModule = npmModule.bind(this);
 
-  switch (this.props.template) {
+  switch (this._getProp('template')) {
     case 'npm-module':
       return npmModule();
     default:

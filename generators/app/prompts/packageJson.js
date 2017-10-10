@@ -1,12 +1,9 @@
-let combineProps = require('../helpers/combineProps');
-const stringToArray = require('../helpers/stringToArray');
 let buildQuestions = require('../helpers/buildQuestions');
 
 module.exports = function() {
-  combineProps = combineProps.bind(this);
   buildQuestions = buildQuestions.bind(this);
 
-  this.props.packageJson = true;
+  this._setProp('packageJson', true);
 
   let prompts = [
     {
@@ -14,26 +11,25 @@ module.exports = function() {
       name: 'packageJsonName',
       message: 'name',
       default: 'project-name',
-      valueOverride: this.props.templateSlug
+      valueOverride: this._getProp('templateSlug')
     },
     {
       type: 'input',
       name: 'packageJsonDescription',
       message: 'description',
-      valueOverride: this.props.projectDescription
+      valueOverride: this._getProp('projectDescription')
     },
     {
       type: 'input',
       name: 'packageJsonGithubUrl',
       message: 'github url, e.g. https://github.com/cajacko/generator-cj-templates\n',
-      valueOverride: this.props.githubUrl
+      valueOverride: this._getProp('githubUrl')
     },
     {
       type: 'input',
       name: 'packageJsonKeywords',
       message: 'keywords',
-      stringToArray,
-      valueOverride: this.props.keywords
+      valueOverride: this._getProp('keywords')
     },
     {
       type: 'input',
@@ -41,7 +37,7 @@ module.exports = function() {
       message: 'author name',
       default: 'Charlie Jackson',
       store: true,
-      valueOverride: this.props.authorName
+      valueOverride: this._getProp('authorName')
     },
     {
       type: 'input',
@@ -49,7 +45,7 @@ module.exports = function() {
       message: 'author email',
       default: 'contact@charliejackson.com',
       store: true,
-      valueOverride: this.props.authorEmail
+      valueOverride: this._getProp('authorEmail')
     },
     {
       type: 'input',
@@ -57,7 +53,7 @@ module.exports = function() {
       message: 'author url',
       default: 'https://charliejackson.com',
       store: true,
-      valueOverride: this.props.authorUrl
+      valueOverride: this._getProp('authorUrl')
     }
   ];
 
@@ -69,5 +65,5 @@ module.exports = function() {
 
   prompts = buildQuestions(prompts);
 
-  return this.prompt(prompts).then(props => combineProps(props));
+  return this.prompt(prompts).then(this._combineProps);
 };
