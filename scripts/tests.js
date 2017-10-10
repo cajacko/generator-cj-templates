@@ -1,13 +1,13 @@
 module.exports = [
-  {
-    controlDir: 'npm-module/woo',
-    prompts: {
-      template: 'npm-module',
-      projectDescription: 'Description of the project',
-      packageJsonKeywords: 'keyword1, keyword2',
-      packageJsonGithubUrl: 'https://github.com/cajacko/dummy-project-url'
-    }
-  },
+  // {
+  //   controlDir: 'npm-module/woo',
+  //   prompts: {
+  //     template: 'npm-module',
+  //     projectDescription: 'Description of the project',
+  //     packageJsonKeywords: 'keyword1, keyword2',
+  //     packageJsonGithubUrl: 'https://github.com/cajacko/dummy-project-url'
+  //   }
+  // },
   {
     controlDir: 'npm-module/test',
     prompts: {
