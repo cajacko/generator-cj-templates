@@ -15,7 +15,7 @@ module.exports = function() {
 
   scripts.push({
     key: 'build',
-    value: 'babel src --out-dir dist --ignore *.test.js',
+    value: 'babel src --out-dir dist --ignore __tests__',
     order: 4
   });
 
@@ -27,7 +27,7 @@ module.exports = function() {
 
   scripts.push({
     key: 'start',
-    value: 'babel src --watch --out-dir dist --ignore *.test.js',
+    value: 'babel src --watch --out-dir dist --ignore __tests__',
     order: 0
   });
 
