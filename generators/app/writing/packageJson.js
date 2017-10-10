@@ -4,6 +4,8 @@ module.exports = function() {
   const dependencies = this._getProp('packageJsonDependencies') || {};
   const devDependencies = this._getProp('packageJsonDevDependencies') || {};
 
+  devDependencies['cj-checklist'] = '0.5.0';
+
   if (this._getProp('eslint')) {
     devDependencies.eslint = '3.19.0';
     devDependencies['eslint-config-airbnb'] = '14.1.0';

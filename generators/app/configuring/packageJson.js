@@ -2,6 +2,12 @@ module.exports = function() {
   const scripts = this._getProp('packageJsonScripts');
 
   scripts.push({
+    key: 'checklist',
+    value: 'checklist',
+    order: 9
+  });
+
+  scripts.push({
     key: 'version:patch',
     value: 'npm version patch',
     order: 10

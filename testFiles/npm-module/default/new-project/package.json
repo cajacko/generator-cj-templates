@@ -26,6 +26,7 @@
     "jest:watch": "jest --watch --coverage",
     "build": "babel src --out-dir dist --ignore __tests__",
     "publish": "npm run build && npm publish",
+    "checklist": "checklist",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major"
@@ -42,6 +43,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "cj-checklist": "0.5.0",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
