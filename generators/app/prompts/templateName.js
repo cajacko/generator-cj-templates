@@ -17,6 +17,12 @@ module.exports = function() {
       }
     },
     {
+      type: 'confirm',
+      name: 'destinationRoot',
+      message: 'Do you want to create a directory for this project?',
+      default: true
+    },
+    {
       type: 'input',
       name: 'projectDescription',
       message: 'description'

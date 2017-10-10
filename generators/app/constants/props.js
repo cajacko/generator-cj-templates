@@ -25,5 +25,6 @@ module.exports = {
   packageJsonAuthorUrl: null,
   readmeDescription: null,
   packageJsonDependencies: null,
-  packageJsonDevDependencies: null
+  packageJsonDevDependencies: null,
+  destinationRoot: null
 };

@@ -39,7 +39,7 @@ module.exports = class extends Generator {
    */
   _propError(key) {
     if (this.props[key] === undefined) {
-      console.warn(`
+      throw new Error(`
         Prop: "${key}" is not defined.
 
         All props must be defined in ./generators/app/constants/props
