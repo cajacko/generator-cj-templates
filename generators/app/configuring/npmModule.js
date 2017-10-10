@@ -16,7 +16,7 @@ module.exports = function() {
   scripts.push({
     key: 'publish',
     value: 'babel src --out-dir dist --ignore *.test.js && npm publish',
-    order: 3
+    order: 5
   });
 
   scripts.push({

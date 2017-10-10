@@ -27,6 +27,12 @@ module.exports = function() {
 
   if (this._getProp('jest')) {
     testScript += ' && jest --coverage';
+
+    scripts.push({
+      key: 'jest:watch',
+      value: 'jest --watch --coverage',
+      order: 3
+    });
   }
 
   if (this._getProp('flow')) {
