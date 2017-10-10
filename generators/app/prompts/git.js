@@ -28,5 +28,13 @@ module.exports = function() {
     }
   ];
 
-  return this.prompt(prompts).then(this._combineProps);
+  return this.prompt(prompts)
+    .then(props => {
+      const newProps = Object.assign({}, props);
+
+      if (newProps.githubUrl === undefined) newProps.githubUrl = null;
+
+      return newProps;
+    })
+    .then(this._combineProps);
 };
