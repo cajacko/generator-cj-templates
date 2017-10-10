@@ -42,7 +42,9 @@
     "prepublish": "nsp check",
     "pretest": "eslint .",
     "precommit": "lint-staged",
-    "test": "node scripts/buildTests.js && jest"
+    "test": "npm run build:tests && jest",
+    "build:control": "node scripts/buildControl.js",
+    "build:tests": "node scripts/buildTests.js"
   },
   "lint-staged": {
     "*.js": ["eslint --fix", "git add"],
