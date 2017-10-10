@@ -26,11 +26,11 @@ module.exports = function() {
   }
 
   if (this._getProp('jest')) {
-    testScript += ' & jest --coverage';
+    testScript += ' && jest --coverage';
   }
 
   if (this._getProp('flow')) {
-    testScript += ' & flow-check --skip-check';
+    testScript += ' && flow-check --skip-check';
   }
 
   if (testScript !== '') {
