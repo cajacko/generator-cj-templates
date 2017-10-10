@@ -1,5 +1,5 @@
-coverage
+/coverage
 **/templates
-testFiles
-scripts/testTemplate.js
-__tests__
+/testFiles
+/scripts/testTemplate.js
+/__tests__
