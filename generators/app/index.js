@@ -16,7 +16,7 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.props = {};
+    this.props = { packageJsonScripts: [] };
 
     this.argument('template', { type: String, required: false });
 

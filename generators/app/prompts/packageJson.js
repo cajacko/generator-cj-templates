@@ -6,6 +6,8 @@ module.exports = function() {
   combineProps = combineProps.bind(this);
   buildQuestions = buildQuestions.bind(this);
 
+  this.props.packageJson = true;
+
   let prompts = [
     {
       type: 'input',
