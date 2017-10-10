@@ -23,13 +23,27 @@ module.exports = function() {
       type: 'input',
       name: 'packageJsonGithubUrl',
       message: 'github url, e.g. https://github.com/cajacko/generator-cj-templates\n',
-      valueOverride: this._getProp('githubUrl')
+      valueOverride: this._getProp('githubUrl'),
+      validate: url => {
+        if (!url || url === '' || url.length < 5) {
+          return 'You must provide a valid github url';
+        }
+
+        return true;
+      }
     },
     {
       type: 'input',
       name: 'packageJsonKeywords',
       message: 'keywords',
-      valueOverride: this._getProp('keywords')
+      valueOverride: this._getProp('keywords'),
+      validate: keywords => {
+        if (!keywords || keywords === '') {
+          return 'You must provide some keywords';
+        }
+
+        return true;
+      }
     },
     {
       type: 'input',

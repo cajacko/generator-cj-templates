@@ -25,7 +25,18 @@ module.exports = function() {
     {
       type: 'input',
       name: 'projectDescription',
-      message: 'description'
+      message: 'description',
+      validate: description => {
+        if (!description || description === '') {
+          return 'You must provide an description';
+        }
+
+        if (description.length < 5) {
+          return 'You must provide a description with at least 5 characters';
+        }
+
+        return true;
+      }
     }
   ];
 
