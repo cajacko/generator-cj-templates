@@ -102,16 +102,6 @@ module.exports = class extends Generator {
   }
 
   /**
-   * Custom method to clear the dir before running
-   *
-   * @return {Promise} A promise to pause yeoman execution until it resolves
-   */
-  removeDir() {
-    this.fs.delete('*');
-    this.fs.delete('.*');
-  }
-
-  /**
    * Yeoman method to write files
    *
    * @return {Promise} A promise to pause yeoman execution until it resolves
